@@ -1,0 +1,23 @@
+<div class="subscribe-container">
+    <div class="title-div">
+    <h2>Subscribe to Categories</h2>
+  </div>
+    <p>
+        Select the categories you're interested in to receive daily email updates with new programs related to those
+        categories.
+        <br>
+        <strong>Note:</strong> If you deselect any category, you will stop receiving email notifications for new
+        programs in that category.
+    </p>
+    <mat-selection-list (selectionChange)="onSelectionChange($event)">
+        <mat-list-option *ngFor="let category of categories" [value]="category.id" [selected]="category.selected">
+            {{ category.name }}
+        </mat-list-option>
+    </mat-selection-list>
+
+    <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+
+    <p class="confirmation-text">
+        After subscribing, you will receive daily email updates with new programs related to your selected categories.
+    </p>
+</div>

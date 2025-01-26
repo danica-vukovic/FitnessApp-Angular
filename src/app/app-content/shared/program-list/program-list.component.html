@@ -1,0 +1,68 @@
+<div class="buttons">
+    <button mat-raised-button (click)="showSearchDialog()">
+      <mat-icon>search</mat-icon>
+      SEARCH
+    </button>
+    <button mat-raised-button  (click)="showFilterDialog()">
+      <mat-icon>filter_alt</mat-icon>
+      FILTER
+    </button>
+    <button mat-raised-button (click)="resetPrograms()">
+      <mat-icon>restart_alt</mat-icon>
+      RESET
+    </button>
+  </div>
+  
+  <mat-card class="program-card">
+    <mat-card-header>
+      <mat-card-title>{{ listTitle }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="programs">
+        <div
+          class="program"
+          *ngFor="let item of pagedPrograms"
+          (click)="openProgramDetails(item)"
+        >
+        <mat-card class="program-item">
+          <mat-card-header>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="program-content-container">
+              <div class="program-image">
+                <img
+                  *ngIf="item.images && item.images.length > 0"
+                  [src]="item.images[0].url"
+                  alt="{{ item.name }}"
+                />
+                <img
+                  *ngIf="!item.images || item.images.length === 0"
+                  src="../../../assets/workout_placeholder.jpg"
+                  alt="Placeholder"
+                />
+              </div>
+              <div class="program-details">
+                <p>Level: {{ item.level }}</p>
+                <p>Duration: {{ item.duration }} days</p>
+                <p>Price: {{ item.price }} BAM</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+        </div>
+      </div>
+    </mat-card-content>
+  
+    <mat-card-footer>
+      <mat-paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
+    </mat-card-footer>
+  </mat-card>
+  

@@ -1,0 +1,144 @@
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    height: 600px; 
+    box-sizing: border-box; 
+}
+
+.comment-list {
+    margin-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    box-sizing: border-box; 
+    flex-grow: 1;
+}
+
+.comment {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    width: 100%; 
+    box-sizing: border-box; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.comment p {
+    margin: 5px 0;
+}
+
+.comment p strong {
+    color: #ba005c;
+    font-size: 16px;
+}
+
+.comment p span {
+    color: #757575;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    background-color: #ba005c;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #9d004f;
+}
+
+.cancel-button {
+    position: absolute;
+    top: 8px; 
+    right: 8px; 
+    background-color: transparent;
+    color: #757575;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+.cancel-button:hover {
+    color: #ba005c;
+}
+
+@media (max-width: 768px) {
+    .comment-section {
+        padding: 20px;
+    }
+
+    .actions-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .cancel-button {
+        font-size: 20px;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comment-section {
+        padding: 15px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-list {
+        margin-bottom: 15px;
+        height: 300px; 
+    }
+
+    .comment {
+        padding: 10px;
+        font-size: 14px; 
+    }
+
+    .actions-container {
+        gap: 6px;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .cancel-button {
+        font-size: 18px;
+        top: 10px;
+        right: 10px;
+    }
+}

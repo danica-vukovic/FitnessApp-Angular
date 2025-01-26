@@ -1,0 +1,77 @@
+
+h1 {
+    color:#ba005c;
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 32px;
+  }
+  
+  mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    min-height: 300px;
+  }
+  
+
+  mat-form-field {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  
+  mat-select {
+    width: 100%;
+  }
+  
+ .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    gap:20px;
+  }
+
+  mat-dialog {
+    border-radius: 0%;
+  }
+  @media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    mat-dialog-content {
+        min-height: 250px;
+    }
+
+    .mat-dialog-actions {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    mat-dialog-content {
+        min-height: 200px;
+    }
+
+    mat-form-field {
+        padding-bottom: 16px;
+    }
+
+    .mat-dialog-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    mat-dialog {
+        padding: 16px;
+        width: 100vw;
+        max-width: 100%;
+        border-radius: 0;
+    }
+}

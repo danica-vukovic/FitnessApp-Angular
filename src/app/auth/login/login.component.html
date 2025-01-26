@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="image-container">
+    <img src="assets/login.png" alt="Login">
+  </div>
+  <div class="form-container">
+    <h2 class="login-title">Welcome!<br> Enter Your Credentials to Log In</h2>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <mat-form-field appearance="fill">
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" required autocomplete="off" placeholder="" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label>Password</mat-label>
+        <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" required
+          autocomplete="off" placeholder="" />
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{ hidePassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-button class="login-button" [disabled]="!loginForm || !loginForm.valid" type="submit">
+          Login
+        </button>
+      </div>
+
+      <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
+      </div>
+      <div class="link">
+        Don’t have an account yet? <a routerLink="/auth/sign-up">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</div>

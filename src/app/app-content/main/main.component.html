@@ -1,0 +1,69 @@
+<mat-sidenav-container class="mat-sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="mat-sidenav">
+        <mat-toolbar class="sidenav-toolbar">
+            <img src="assets/logoFitness.png" alt="Logo" class="app-logo">
+            <span class="main-title ">Fitness App</span>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a class="mat-list-item" mat-list-item routerLink="/main/public/home">
+                <mat-icon class="icon-class">home</mat-icon>
+                <span class="span">Home</span>
+            </a>
+            <a mat-list-item routerLink="/main/public/programs">
+                <mat-icon class="icon-class">fitness_center</mat-icon>
+                <span class="span">All Programs</span>
+            </a>
+            <a mat-list-item routerLink="/main/protected/profile" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">person</mat-icon>
+                <span class="span">My Profile</span>
+            </a>
+            <a mat-list-item routerLink="/auth/login" *ngIf="!isAuthenticated">
+                <mat-icon class="icon-class">login</mat-icon>
+                <span class="span">Login</span>
+            </a>
+            <a mat-list-item routerLink="/auth/sign-up" *ngIf="!isAuthenticated">
+                <mat-icon class="icon-class">how_to_reg</mat-icon>
+                <span class="span">Register</span>
+            </a>
+            <a mat-list-item routerLink="/main/protected/add-program" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">add</mat-icon>
+                <span class="span">Add Program</span>
+              </a>
+              <a mat-list-item routerLink="/main/protected/my-programs" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">assignment</mat-icon>
+                <span class="span">My Programs</span>
+              </a>
+              <a mat-list-item routerLink="/main/protected/purchased-programs" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">assignment</mat-icon>
+                <span class="span">Purchased Programs</span>
+              </a>
+              <a mat-list-item routerLink="/main/protected/activity-log" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">trending_up</mat-icon>
+                <span class="span">Your Activity Log</span>
+              </a>   
+              <a mat-list-item routerLink="/main/protected/message-list" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">message</mat-icon>
+                <span class="span">Messages</span>
+              </a>     
+              <a mat-list-item routerLink="/main/protected/subscribe-category" *ngIf="isAuthenticated">
+                <mat-icon class="icon-class">subscriptions</mat-icon>
+                <span class="span">Subscriptions</span>
+              </a>
+                      
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar class="main-toolbar">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon class="menu-icon">menu</mat-icon>
+            </button>
+            <span class="toolbar-title"></span>
+            <span class="spacer"></span>
+            <button mat-button class="logout-button" *ngIf="isAuthenticated" (click)="logOut()">Log Out</button>
+        </mat-toolbar>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

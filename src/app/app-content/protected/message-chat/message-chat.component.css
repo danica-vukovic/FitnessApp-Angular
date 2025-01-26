@@ -1,0 +1,153 @@
+h1 {
+  background-color: #ba005c;
+  color: #fff !important; 
+  text-align: center;
+  padding: 16px;
+  font-size: 1.5rem;
+}
+
+.chat-content {
+  max-height: 300px; 
+  overflow-y: auto; 
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.timestamp {
+  font-size: 0.75rem; 
+  color: #888; 
+  margin-top: 5px; 
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #ba005c; 
+  font-size: 0.875rem; 
+}
+
+.incoming {
+  align-items: flex-start !important;
+}
+
+.outgoing {
+  align-items: flex-end !important;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.incoming .message-content {
+  background-color: #f4f1e7; 
+  color: #444; 
+}
+
+.outgoing .message-content {
+  background-color: #ba005c !important; 
+  color: #fff !important; 
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin: 0 8px;
+}
+
+.mat-dialog-actions .mat-button {
+  color: #ba005c; 
+}
+
+.mat-raised-button {
+  background-color: #ba005c; 
+  color: #fff; 
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+    padding: 12px;
+  }
+
+  .chat-content {
+    max-height: 250px; 
+    padding: 12px;
+  }
+
+  .message {
+    margin-bottom: 15px;
+  }
+
+  .message-content {
+    max-width: 90%;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .username {
+    font-size: 0.8rem;
+  }
+
+  textarea {
+    min-height: 80px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .chat-content {
+    max-height: 200px;
+    padding: 10px;
+  }
+
+  .message-content {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .username {
+    font-size: 0.75rem;
+  }
+
+  .timestamp {
+    font-size: 0.7rem;
+  }
+
+  textarea {
+    min-height: 60px;
+    padding: 6px;
+  }
+}

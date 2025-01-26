@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Chat with {{ data.user.name }}</h1>
+
+<div mat-dialog-content class="chat-content">
+    <div *ngFor="let message of messages" class="message"
+         [ngClass]="{'incoming': message.user.id !== user.idUser, 'outgoing': message.user.idUser === user.idUser}">
+      <p class="username">{{ message.user.username }}</p>
+      <p class="message-content">{{ message.content }}</p>
+      <p class="timestamp">{{ message.sentDate | date:'short' }}</p>
+    </div>
+  </div>
+  
+<div mat-dialog-actions>
+  <mat-form-field appearance="fill">
+    <mat-label>Message</mat-label>
+    <textarea matInput [(ngModel)]="newMessageContent" name="messageContent"></textarea>
+  </mat-form-field>
+  <button mat-button color="primary" (click)="sendMessage()">Send</button>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

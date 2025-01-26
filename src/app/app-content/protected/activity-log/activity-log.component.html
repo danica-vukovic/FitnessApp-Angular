@@ -1,0 +1,55 @@
+<div class="activity-log">
+    <h2>Your Activity Log</h2>
+    <div class="button-container">
+      <button class="add-button" mat-button color="primary" (click)="openAddActivityDialog()">
+        <mat-icon class="icon-class">add</mat-icon>
+        Add New Activity
+      </button>
+      <button class="add-button" mat-button color="primary" (click)="generatePDF()"> 
+        Generate PDF
+      </button>
+    </div>  
+   <div class="entries">
+      <table mat-table [dataSource]="entries" class="mat-elevation-z8">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.date | date }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="exerciseType">
+          <th mat-header-cell *matHeaderCellDef>Exercise Type</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.exerciseType }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell *matHeaderCellDef>Duration (min)</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.duration }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="intensity">
+          <th mat-header-cell *matHeaderCellDef>Intensity</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.intensity }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="result">
+          <th mat-header-cell *matHeaderCellDef>Result</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.result }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="bodyWeight">
+          <th mat-header-cell *matHeaderCellDef>Body Weight (kg)</th>
+          <td mat-cell *matCellDef="let entry">{{ entry.bodyWeight }}</td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['date', 'exerciseType', 'duration', 'intensity', 'result', 'bodyWeight']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['date', 'exerciseType', 'duration', 'intensity', 'result', 'bodyWeight'];"></tr>
+      </table>
+    </div>
+  
+    <div class="progress-chart">
+        <div class="progress-chart">
+            <canvas id="weightChart"></canvas>
+          </div>
+    </div>
+  </div>
+  

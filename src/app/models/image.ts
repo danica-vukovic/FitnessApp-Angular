@@ -1,0 +1,9 @@
+export class Image {
+    url: string;
+    programId: number;
+  
+    constructor(imageUrl: string, programId: number) {
+      this.url = imageUrl;
+      this.programId = programId;
+    }
+  }

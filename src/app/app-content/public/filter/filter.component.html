@@ -1,0 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="onFilter()">
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Difficulty Level</mat-label>
+      <mat-select formControlName="difficultyLevel">
+        <mat-option *ngFor="let level of difficultyLevels" [value]="level">
+          {{ level }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Location</mat-label>
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let location of locations" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Attributes</mat-label>
+      <mat-select formControlName="attribute" (selectionChange)="onAttributeChange()">
+        <mat-option *ngFor="let attr of availableAttributes" [value]="attr.idAttribute">
+          {{ attr.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field *ngIf="form.get('attribute')?.value">
+      <mat-label>Attribute Values</mat-label>
+      <mat-select formControlName="attributeValue" multiple>
+        <mat-option *ngFor="let value of availableValues[form.get('attribute')?.value]" [value]="value">
+          {{ value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="actions">
+    <button mat-button type="submit">Filter</button>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+  

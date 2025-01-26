@@ -1,0 +1,131 @@
+<form [formGroup]="programForm" (ngSubmit)="addProgram()">
+  <mat-card class="program-card">
+    <mat-card-header>
+      <mat-card-title>Add New Program</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <mat-icon matPrefix>title</mat-icon>
+        <input matInput type="text" formControlName="name" required autocomplete="off" placeholder="" />
+        <mat-error *ngIf="programForm.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <mat-icon matPrefix>description</mat-icon>
+        <textarea matInput matInput formControlName="description" required rows="2"></textarea>
+        <mat-error *ngIf="programForm.get('description')?.hasError('required')">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <mat-icon matPrefix>attach_money</mat-icon>
+        <input matInput matInput type="number" formControlName="price" required autocomplete="off" placeholder=""
+          min="1" max="500" />
+        <mat-error *ngIf="programForm.get('price')?.hasError('required')">
+          Price is required
+        </mat-error>
+        <mat-error *ngIf="programForm.get('price')?.hasError('min')">
+          Price must be greater than 0
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Difficulty Level</mat-label>
+        <mat-icon matPrefix>star</mat-icon>
+        <mat-select formControlName="level">
+          <mat-option *ngFor="let level of difficultyLevels" [value]="level">
+            {{ level }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="programForm.get('level')?.hasError('required')">
+          Difficulty level is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Duration (days)</mat-label>
+        <mat-icon matPrefix>timer</mat-icon>
+        <input matInput type="number" formControlName="duration" required autocomplete="off" placeholder="" min="1"
+          max="1000" />
+        <mat-error *ngIf="programForm.get('duration')?.hasError('required')">
+          Duration is required
+        </mat-error>
+        <mat-error *ngIf="programForm.get('duration')?.hasError('min')">
+          Duration must be greater than 0
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <mat-icon matPrefix>place</mat-icon>
+        <mat-select formControlName="location">
+          <mat-option *ngFor="let loc of locations" [value]="loc">
+            {{ loc }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="programForm.get('location')?.hasError('required')">
+          Location is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Instructor Information</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput type="text" formControlName="instructorInformation" required autocomplete="off"
+          placeholder="" />
+        <mat-error *ngIf="programForm.get('instructorInformation')?.hasError('required')">
+          Instructor Information is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Instructor Contact</mat-label>
+        <mat-icon matPrefix>contact_phone</mat-icon>
+        <input matInput formControlName="contact" required autocomplete="off" placeholder="" type="text" />
+        <mat-error *ngIf="programForm.get('contact')?.hasError('required')">
+          Instructor Contact is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" #videoUrlField *ngIf="programForm.get('location')?.value === 'ONLINE'">
+        <mat-label>Video URL</mat-label>
+        <mat-icon matPrefix>play_circle</mat-icon>
+        <input matInput formControlName="videoUrl" required autocomplete="off" placeholder="" type="text" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-icon matPrefix>category</mat-icon>
+        <mat-select formControlName="category" (selectionChange)="onCategoryChange($event.value)">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{ cat.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="programForm.get('category')?.hasError('required')">
+          Category is required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="file-upload-container">
+        <input id="fileInput" class="hidden-file-input" type="file" accept="image/*" (change)="onFilesSelected($event)"
+          multiple />
+        <button mat-icon-button type="button" (click)="triggerFileInput()" class="icon-button">
+          <mat-icon>add_a_photo</mat-icon>
+          <span>Select Files</span>
+        </button>
+      </div>
+      <div *ngIf="isLoading" class="spinner-overlay">
+        <div class="spinner"></div>
+      </div>
+      <button mat-button class="submit-button" color="primary" type="submit" [disabled]="programForm.invalid">Add
+        Program</button>
+    </mat-card-content>
+  </mat-card>
+</form>

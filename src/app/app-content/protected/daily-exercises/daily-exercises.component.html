@@ -1,0 +1,15 @@
+<div *ngIf="exercises.length > 0" class="exercise-container">
+  <h2>Daily Exercise Suggestions</h2>
+  <hr>
+  <div *ngFor="let exercise of exercises">
+    <mat-card class="exercise-card">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">{{ exercise.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <p><strong>Instructions:</strong> {{ exercise.instructions }}</p>
+        <p><strong>Level:</strong> {{ exercise.difficulty }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

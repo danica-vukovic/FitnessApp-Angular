@@ -1,0 +1,6 @@
+<div class="activation-container">
+    <img src="assets/activation-image.png" alt="Account Activation" class="activation-image" />
+    <p>{{ message }}</p>
+    <button mat-button *ngIf="!isActivated" (click)="onActivate()">Click here to activate your account</button>
+  </div>
+  

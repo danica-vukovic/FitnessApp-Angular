@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<form class="sign-up-container">
+<form class="sign-up-form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+  <div class="avatar-container">
+    <div class="image-container" [ngStyle]="{ 'background-image': 'url(' + avatarUrl + ')' }">
+      <input type="file" id="avatar" (change)="onAvatarSelected($event)" hidden />
+      <label for="avatar" class="icon-wrapper">
+        <mat-icon>camera_alt</mat-icon>
+      </label>
+    </div>
+  </div>
+    <div class="inputs">
+      <div class="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="name"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Surname</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="surname"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-icon matPrefix>mail</mat-icon>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="email"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+          </mat-form-field>
+      </div>
+          <mat-form-field appearance="fill">
+            <mat-icon matPrefix>location_city</mat-icon>
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="city"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <mat-icon matPrefix>account_circle</mat-icon>
+            <input
+              matInput
+              type="text"
+              formControlName="username"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <mat-icon matPrefix>lock</mat-icon>
+            <input
+              matInput
+              type="{{ hidePassword ? 'password' : 'text' }}"
+              formControlName="password"
+              required
+              autocomplete="off"
+              placeholder=""
+            />
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+              {{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon
+            >
+          </mat-form-field>
+        </div>
+    <button
+    mat-button
+    class="sign-up-button"
+    [disabled]="!signUpForm || !signUpForm.valid"
+    type="submit"
+  >
+    Sign Up
+  </button>
+  <div *ngIf="isLoading" class="spinner-overlay">
+     <div class="spinner"></div>
+  </div>
+  <div class="link">
+    Already have an account? <a routerLink="/auth/login">Login</a>
+  </div>
+  </form>
+   </form>
+

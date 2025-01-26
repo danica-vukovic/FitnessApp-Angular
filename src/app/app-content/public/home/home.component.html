@@ -1,0 +1,19 @@
+<div class="rss-feed">
+  <h2 class="feed-title">Fitness Facts</h2>
+  <hr>
+  <div *ngIf="facts.length">
+    <mat-card *ngFor="let fact of facts" class="rss-card">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">{{ fact.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <p>{{ fact.description }}</p>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <a mat-button [href]="fact.link" target="_blank">Read more</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+<div class="daily-exercises" *ngIf="isAuthenticated"> 
+  <app-daily-exercises></app-daily-exercises>
+

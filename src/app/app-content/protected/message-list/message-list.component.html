@@ -1,0 +1,27 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Chat with Users and Advisors</h2>
+  </div>
+  <div class="chat-body">
+    <div class="list-container">
+      <div class="user-list-container">
+        <h3>Chat with Users</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let user of users" (click)="openChat(user, false)">
+            <div matLine>  <mat-icon>person</mat-icon>
+            {{ user.name }} {{ user.surname }}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="advisor-list-container">
+        <h3>Chat with Advisors</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let advisor of advisors" (click)="openChat(advisor, true)">
+             <div matLine> <mat-icon>person</mat-icon>
+           {{ advisor.name }} {{ advisor.surname }}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div> 
+  </div>
+</div>

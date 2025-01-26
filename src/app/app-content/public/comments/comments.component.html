@@ -1,0 +1,21 @@
+<div class="comment-section">
+    <button class="cancel-button" (click)="cancel()">&times;</button>
+  
+    <div class="comment-list">
+      <div *ngFor="let comment of comments" class="comment">
+        <p><strong>{{ comment.username }}</strong> <span>{{ comment.dateTime | date:'short' }}</span></p>
+        <p>{{ comment.content }}</p>
+      </div>
+    </div>
+  
+    <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+      <mat-form-field appearance="fill">
+        <mat-label>Write a comment</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field>
+      <mat-card-actions class="actions-container">
+        <button mat-raised-button color="primary" type="submit">Add Comment</button>
+      </mat-card-actions>
+    </form>
+  </div>
+  

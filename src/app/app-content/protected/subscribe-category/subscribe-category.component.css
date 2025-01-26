@@ -1,0 +1,117 @@
+.subscribe-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3), 0px 0px 12px rgba(0, 0, 0, 0.2);
+    background-color: #f4f1e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 16px; 
+  }
+  
+  h2 {
+    font-size: 36px;
+    text-align: center;
+    color: #ba005c;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .title-div {
+    width: 100%;
+    background-color: #f3dde1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 12px 12px 0px 0px;
+  }
+  
+  p {
+    margin-bottom: 24px;
+    line-height: 1.6;
+    padding: 12px;
+    color: #333;
+    border-radius: 8px;
+  }
+  
+  mat-selection-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    margin-top: 24px;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+    background-color: #f3dde1 !important;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .confirmation-text {
+    margin-top: 24px;
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .subscribe-container {
+        padding: 0px 10px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .title-div {
+        padding: 12px;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .subscribe-container {
+        max-width: 100%;
+        padding: 0px 8px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    button {
+        width: 90%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .confirmation-text {
+        font-size: 0.9rem;
+    }
+}

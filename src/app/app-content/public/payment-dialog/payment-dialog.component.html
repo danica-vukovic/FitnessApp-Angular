@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Select Payment Method</h1>
+<div mat-dialog-content>
+  <mat-radio-group [(ngModel)]="selectedPaymentMethod">
+    <mat-radio-button value="card">Card</mat-radio-button><br>
+    <mat-radio-button value="paypal">PayPal</mat-radio-button><br>
+    <mat-radio-button value="inPerson">In Person</mat-radio-button>
+  </mat-radio-group>
+
+  <div *ngIf="selectedPaymentMethod === 'card'" class="payment-details">
+    <mat-form-field appearance="fill">
+      <mat-label>Card Number</mat-label>
+      <input matInput [(ngModel)]="paymentDetails.cardNumber" placeholder="Enter card number." required>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="selectedPaymentMethod === 'paypal'" class="payment-details">
+    <mat-form-field appearance="fill">
+      <mat-label>Email for PayPal</mat-label>
+      <input matInput [(ngModel)]="paymentDetails.paypalEmail" placeholder="Enter PayPal email." required>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onConfirm()">Confirm</button>
+</div>

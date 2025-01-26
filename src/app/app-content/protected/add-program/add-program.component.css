@@ -1,0 +1,147 @@
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.program-card {
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f4f1e7;
+}
+
+mat-card-header {
+    font-size: 2rem;
+    color: #ba005c; 
+    padding: 20px;
+    margin-left: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+mat-icon {
+    color: #ba005c;
+    margin-right: 8px;
+}
+
+input[matInput],
+textarea[matInput] {
+    font-size: 16px;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-color: #f3dde1;
+}
+
+.hidden-file-input {
+    display: none; 
+  }
+  
+  .file-upload-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .icon-button {
+    background-color: transparent; 
+    border: none; 
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    min-width: 120px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+  
+  .icon-button mat-icon {
+    font-size: 20px; 
+  }
+  .hidden-file-input {
+    display: none; 
+  }
+  
+  .file-upload-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-button span {
+    margin-left: 5px;
+    color: #ba005c;
+  }
+  @media (max-width: 768px) {
+    mat-card-header {
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+  
+    .submit-button {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  
+    .icon-button {
+      font-size: 12px;
+      padding: 6px 12px;
+      min-width: 100px;
+    }
+  
+    input[matInput],
+    textarea[matInput] {
+      font-size: 14px;
+    }
+  
+    .file-upload-container {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    mat-card-header {
+      font-size: 1.25rem;
+      padding: 10px;
+    }
+  
+    .submit-button {
+      padding: 6px 15px;
+      font-size: 12px;
+    }
+  
+    .icon-button {
+      font-size: 10px;
+      padding: 5px 10px;
+      min-width: 80px;
+    }
+  
+    input[matInput],
+    textarea[matInput] {
+      font-size: 12px;
+    }
+  
+    .file-upload-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

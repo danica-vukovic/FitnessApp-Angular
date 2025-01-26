@@ -1,0 +1,37 @@
+<div class="search-container" style="display: flex; flex-direction: column; gap: 16px;">
+    <mat-form-field appearance="fill">
+        <mat-label>Search by name...</mat-label>
+        <input matInput type="text" [(ngModel)]="nameSearch" (input)="onSearchChange()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Search by price...</mat-label>
+        <input matInput type="number" [(ngModel)]="priceSearch" (input)="onSearchChange()" />
+        <mat-hint>Enter a maximum price (less than or equal to this value)</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Search by duration...</mat-label>
+        <input matInput type="number" [(ngModel)]="durationSearch" (input)="onSearchChange()" />
+        <mat-hint>Enter a maximum duration (less than or equal to this value)</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Search by instructor information...</mat-label>
+        <input matInput type="text" [(ngModel)]="instructorInfoSearch" (input)="onSearchChange()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Search by contact...</mat-label>
+        <input matInput type="text" [(ngModel)]="contactSearch" (input)="onSearchChange()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Search by creator name...</mat-label>
+        <input matInput type="text" [(ngModel)]="creatorSearch" (input)="onSearchChange()" />
+    </mat-form-field>
+    </div>
+    <div class="actions">
+    <button mat-button color="primary" (click)="onSearch()">Search</button>
+    <button mat-button color="primary" (click)="onCancel()">Cancel</button>
+    </div>

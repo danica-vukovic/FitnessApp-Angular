@@ -1,0 +1,207 @@
+.mat-sidenav-container {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mat-toolbar {
+    background-color: #ba005c; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+    padding: 0 10px;
+  }
+  
+  .sidenav-toolbar {
+    background-color: #ba005c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+  }
+  
+  .app-logo {
+    width: 50px; 
+    height: 50px; 
+    margin-right: 10px;
+    border-radius: 50%; 
+  }
+  
+  .mat-sidenav {
+    background-color: #f3dde1;
+    width: 260px;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+  }
+  
+  mat-list-item {
+    display: flex;
+    align-items: center!important;
+    justify-content: center;
+    padding: 10px; 
+}
+
+  mat-nav-list {
+    padding: 10px;
+  }
+  
+  .mat-sidenav-content {
+    background-color: #f4f1e7; 
+    flex: 1;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .icon-class {
+    font-size: 22px;
+    color: #ba005c;
+    margin-right: 15px;
+    transition: color 0.3s;
+    line-height: 1; 
+    vertical-align: middle; 
+  }
+  
+  .icon-class:hover {
+    color: #8c0144;
+    transform: scale(1.1);
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 10px;
+    transition: color 0.3s transform 0.3s;
+  }
+  
+  .menu-icon:hover {
+    color: #e4b1cb;
+    transform: scale(1.1);
+  }
+  
+  .mat-toolbar .toolbar-title {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .main-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .logout-button {
+    color: white !important;
+    background-color: #ba005c;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-left: auto;  
+  }
+  
+  .logout-button:hover {
+    background-color: #a5004f;
+  }
+  
+  .content {
+    padding: 20px; 
+    flex: 1; 
+    height: 100vh;
+    flex-direction: column;
+  }
+ mat-list-item {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .mat-sidenav {
+      width: 230px;
+    }
+  
+    .mat-toolbar {
+      padding: 0 5px;
+    }
+  
+    .toolbar-title {
+      font-size: 16px;
+    }
+  
+    .app-logo {
+      width: 40px;
+      height: 40px;
+    }
+    .main-title{
+      font-size: 18px;
+    }
+    
+    .icon-class {
+      font-size: 20px;
+      margin-right: 5px;
+    }
+    
+    .content {
+      padding: 15px;
+    }
+    .logout-button{
+      padding: 0px;
+      margin-left: auto; 
+      position: absolute;
+      right: 10px;
+    }
+    .span{
+      font-size: 14px;
+      word-wrap: break-word;
+      padding: 0px;
+    }
+  }
+
+
+@media (max-width: 480px) {
+  .mat-sidenav {
+    width: 80px;
+  }
+
+  .mat-toolbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .toolbar-title {
+    font-size: 14px;
+    text-align: left;
+  }
+  .app-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  .menu-icon {
+    font-size: 18px;
+  }
+  .main-title{
+    font-size: 12px;
+  }
+  .icon-class {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,109 @@
+<mat-card class="program-card">
+    <mat-card-header>
+        <div class="header-content">
+            <div class="icon-container">
+                <img [src]="program.images[0].url" alt="Program Icon" class="program-icon">
+            </div>
+            <div class="header-text">
+                <mat-card-title>{{ program.name }}</mat-card-title>
+                <mat-card-subtitle> Level: {{ program.level }}</mat-card-subtitle>
+                <mat-card-subtitle style="font-size: 12px;">Created by: {{ program.user.name + " " +
+                    program.user.surname }}</mat-card-subtitle>
+            </div>
+            <div class="buy-div">
+                <button mat-button (click)="openBuyDialog()" class="buy-button" *ngIf="login && !hasProgram">
+                    <mat-icon class="buy-icon">paid</mat-icon>
+                    BUY
+                </button>
+            </div>
+        </div>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="program-details">
+            <div class="detail-row">
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Description: </b> {{ program.description }}</mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="detail-row">
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Price: </b> {{ program.price }} BAM</mat-card-content>
+                </mat-card>
+
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Location: </b> {{ program.location }}</mat-card-content>
+                </mat-card>
+
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Duration: </b> {{ program.duration }} days</mat-card-content>
+                </mat-card>
+            </div>
+            <div class="detail-row">
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Completed: </b> {{ program.completed ? 'Yes' : 'No' }}</mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="detail-row">
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Instructor Information: </b>{{ program.instructorInformation
+                        }}</mat-card-content>
+                </mat-card>
+
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Contact: </b> {{ program.contact }}</mat-card-content>
+                </mat-card>
+
+                <mat-card class="detail-card"
+                    *ngIf="program.location === Location.ONLINE && !program.completed && hasProgram">
+
+                    <mat-card-content><b>Video: </b> <a [href]="program.videoUrl" target="_blank">Watch
+                            Video</a></mat-card-content>
+                </mat-card>
+            </div>
+            <div class="detail-row">
+
+                <mat-card class="detail-card">
+                    <mat-card-content><b>Category: </b> {{ program.category.name }}</mat-card-content>
+                    <button mat-button (click)="toggleAttributes()" class="show-attributes-button">
+                        <mat-icon>expand_more</mat-icon>
+                        {{ showAttributes ? 'Hide Attributes' : 'Show Attributes' }}
+                    </button>
+
+  
+                        <div class="attributes-section" *ngIf="showAttributes">
+                            <b style="color: #ba005c;">Attributes:</b>
+                            <ul>
+                              <li *ngFor="let key of attributes.keys()">
+                               <b> {{ key }}: </b> {{ attributes.get(key)?.join(', ') }}
+                              </li>
+                            </ul>
+                          </div>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="photo-album">
+            <mat-card *ngFor="let image of program.images" class="photo-card">
+                <img [src]="image.url" alt="Program Image" class="photo-image">
+            </mat-card>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions class="actions-container">
+        <button mat-button (click)="goBack()">
+            Back to Programs
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button mat-button (click)="openCommentsDialog()" *ngIf="login">
+            <mat-icon>comment</mat-icon>
+            View Comments
+        </button>
+        <button mat-button (click)="deleteProgram()" *ngIf="login && userCreatedProgram">
+            Delete Program
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
